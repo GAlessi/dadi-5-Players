@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Dadi</title>
+
+<!-- css base -->
+        <style media="screen">
+            .contenitore{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+                height: 40vh;
+                background-color: red;
+            }
+
+            .contenitoreDado{
+                text-align: center;
+            }
+
+            img{
+                height: 50px;
+                width: 50px;
+
+            }
+
+        </style>
+    </head>
+    <body>
+
+
+<!-- html base -->
+        <div class="contenitore">
+
+            <div class="contenitoreDado">
+                <h1>Player1</h1>
+                <div id="dadoPlayer1"></div>
+            </div>
+            <div class="contenitoreDado">
+                <h1>Player2</h1>
+                <div id="dadoPlayer2"></div>
+            </div>
+            <div class="contenitoreDado">
+                <h1>Player3</h1>
+                <div id="dadoPlayer3"></div>
+            </div>
+            <div class="contenitoreDado">
+                <h1>Player4</h1>
+                <div id="dadoPlayer4"></div>
+            </div>
+            <div class="contenitoreDado">
+                <h1>Player5</h1>
+                <div id="dadoPlayer5"></div>
+            </div>
+
+        </div>
+        <div class="contenitore">
+            <h1 id="stamp"></h1>
+        </div>
+
+
+<!-- javaScript -->
+        <script type="text/javascript">
+
+            // Preparazione delle variabili
+            var array = [];
+            var vincitori = []
+            var winNumber = 0;
+            var id = 0;
+
+            // Generazione 5 numeri Random
+            for(var i = 0; i <= 4; i++) {
+                var casualNumber = Math.floor(Math.random() * 6) + 1;
+                array.push(casualNumber);
+                id = "dadoPlayer" + (i + 1);
+                console.log(id , array[i]);
+                document.getElementById(id).innerHTML = ('<img src="img/' + casualNumber + '.svg">');
+            }
+
+            // Identificazione numero vincente
+            for (var i = 0; i < array.length; i++) {
+                if (winNumber < array[i]) {
+                    winNumber = array[i];
+                }
+            }
+            console.log("Numero vincente: " + winNumber);
+
+            // inserimento in array dei player che hanno ottenuto il numero vincente
+            for (var i = 0; i < array.length; i++) {
+                if (winNumber == array[i]) {
+                    vincitori.push(i + 1);
+                }
+            }
+
+            // Stamp del/dei vincitore/i
+            if (vincitori.length > 1) {
+                console.log( "i vincitori sono players: " + vincitori );
+                document.getElementById("stamp").innerHTML = ("i vincitori sono i players: " + vincitori + " con il risultato di: "+ winNumber);
+
+            }else {
+                console.log("il vincitore è player: " + vincitori);
+                document.getElementById("stamp").innerHTML = ("il vincitore è player: " + vincitori + " con il risultato di: " + winNumber);
+
+
+            }
+
+
+        </script>
+
+    </body>
+</html>
