@@ -93,19 +93,28 @@
                 }
             }
 
+
             // Stamp del/dei vincitore/i
-            if (vincitori.length > 1) {
+            if (vincitori.length == 5) {
                 console.log( "i vincitori sono players: " + vincitori );
-                document.getElementById("stamp").innerHTML = ("i vincitori sono i players: " + vincitori + " con il risultato di: "+ winNumber);
+                document.getElementById("stamp").innerHTML = ("I vincitori sono i players: " + vincitori[0] + ", " + vincitori[1] + ", " + vincitori[2] + ", " + vincitori[3] + ", " + vincitori[4] +  " con il risultato di: "+ winNumber);
+
+            }else if (vincitori.length == 4) {
+                console.log("i vincitori sono players: " + vincitori);
+                document.getElementById("stamp").innerHTML = ("I vincitori sono i players: " + vincitori[0] + ", " + vincitori[1] + ", " + vincitori[2] + ",  " + vincitori[3] + ",  " + vincitori[4] +  " con il risultato di: "+ winNumber);
+
+            }else if (vincitori.length == 3) {
+                console.log("i vincitori sono players: " + vincitori);
+
+                document.getElementById("stamp").innerHTML = ("I vincitori sono i players: " + vincitori[0] + ", " + vincitori[1] + " e " + vincitori[2] +  " con il risultato di: "+ winNumber);
+            }else if (vincitori.length == 2) {
+                console.log("i vincitori sono players: " + vincitori);
+                document.getElementById("stamp").innerHTML = ("I vincitori sono i players: " + vincitori[0] + " e " + vincitori[1] + " con il risultato di: "+ winNumber);
 
             }else {
                 console.log("il vincitore è player: " + vincitori);
-                document.getElementById("stamp").innerHTML = ("il vincitore è player: " + vincitori + " con il risultato di: " + winNumber);
-
-
+                document.getElementById("stamp").innerHTML = ("Il vincitore è il player: " + vincitori[0] + " con il risultato di: "+ winNumber);
             }
-
-
         </script>
 
     </body>
